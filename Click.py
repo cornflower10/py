@@ -194,7 +194,21 @@ def key_input(str=''):
 
 
 if __name__ == "__main__":
-    mouse_dclick(1870, 20)
+    time.sleep(2)
+    # 通过坐标获取窗口句柄
+    # hw= win32api.MonitorFromPoint(win32api.GetCursorPos(), win32con.MONITOR_DEFAULTTONEAREST)
+    hw = win32gui.GetForegroundWindow()
+    # hw = win32api.WindowFromPoint(win32api.GetCursorPos())
+    # 获取窗口classname
+    className = win32gui.GetClassName(hw)
+    print("classNmae:"+className)
+    # 获取窗口标题
+    windowText = win32gui.GetWindowText(hw)
+    print("windowText:"+windowText)
+
+    # # 获取窗口坐标
+    # win32gui.GetwindowRect(hw)
+    # mouse_dclick(1870, 20)
     # str1 = 'python'
     # key_input(str1)
     # mouse_click(1000, 280)
@@ -207,3 +221,6 @@ if __name__ == "__main__":
 #     　　time.sleep(1)
 #     　　win32api.keybd_event(0x12, 0, win32con.KEYEVENTF_KEYUP, 0)
 #     　　win32api.keybd_event(0x41, 0, win32con.KEYEVENTF_KEYUP, 0)
+
+
+
